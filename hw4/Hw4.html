@@ -21,9 +21,13 @@
 	<div id="info">HW4 I4A56</div>
 	<script src="https://threejs.org/build/three.min.js"></script>
 	<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
-
+	<script src="\three.js-master\three.js-master\build\three.js"></script>
+	<script type="text/javascript" src="\three.js-master\three.js-master\src\loaders\ObjectLoader.js"></script>
+	<script type="text/javascript" src="\three.js-master\three.js-master\src\loaders\MaterialLoader.js"></script>
 <script>
-//import * as THREE from '../build/three.module.js';
+
+
+
 
 var button = false;
 class Obstacle {
@@ -294,9 +298,17 @@ function init() {
     agents.push(agent);
   }
 
+
+//const manager = new THREE.ObjectLoader();
+const loader = new THREE.ObjectLoader();
+loader.load('/Tree1/Tree1.obj', 
+function ( object ) {
+
+	//
+	scene.add(object);
+}); 
   
-  
-	// add obstacles to the scene
+
   scene.obstacles = [];
   scene.obstacles.push ( new Obstacle (new THREE.Vector3(50,0,50), 20) )
   scene.obstacles.push ( new Obstacle (new THREE.Vector3(-50,0,40), 10) )
